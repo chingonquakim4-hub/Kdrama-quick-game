@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>K-Drama Universe</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+    <div class="logo" onclick="showPage('home')">
+        🎬 K-DRAMA <span>UNIVERSE</span>
+    </div>
+
+    <div class="nav-links">
+        <button onclick="showPage('home')">Trang chủ</button>
+        <button onclick="showPage('explore')">Khám phá</button>
+        <button onclick="showPage('ranking')">Xếp hạng</button>
+    </div>
+</nav>
+
+
+<!-- ==================== HOME ==================== -->
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-text">
+            <p class="small-title">WELCOME TO</p>
+
+            <h1>
+                K-DRAMA
+                <span>UNIVERSE</span>
+            </h1>
+
+            <p class="description">
+                Thử xem m hiểu thế giới K-Drama đến đâu.
+                Từ những bộ phim tình cảm nhẹ nhàng đến những
+                câu chuyện học đường đầy drama.
+            </p>
+
+            <button class="main-btn" onclick="showPage('explore')">
+                🎬 CHƠI GAME
+            </button>
+        </div>
+
+        <div class="hero-card">
+            <div class="floating-card card1">💗 Romance</div>
+            <div class="floating-card card2">🎓 School</div>
+            <div class="floating-card card3">✨ Fantasy</div>
+
+            <div class="drama-symbol">
+                <span>한</span>
+                <span>류</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="intro-section">
+
+        <div>
+            <p class="section-label">ABOUT THE GAME</p>
+
+            <h2>
+                Mỗi câu hỏi là một
+                <span>màn K-Drama</span>
+            </h2>
+        </div>
+
+        <p>
+            Chọn chế độ chơi, chọn thể loại và bắt đầu thử thách.
+            Điểm số của m sẽ phụ thuộc vào số câu đúng,
+            tốc độ trả lời và combo.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <h3>QUIZ</h3>
+            <p>Kiểm tra kiến thức về các bộ K-Drama nổi tiếng.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🖼️</div>
+            <h3>POSTER</h3>
+            <p>Nhìn poster và đoán xem đó là bộ phim nào.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔥</div>
+            <h3>EXPERT</h3>
+            <p>Thử thách khó hơn dành cho những người mê K-Drama.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== EXPLORE ==================== -->
+<section id="explore" class="page">
+
+    <div class="page-header">
+        <p class="section-label">CHOOSE YOUR GAME</p>
+
+        <h2>
+            M chọn <span>kiểu chơi</span> nào?
+        </h2>
+
+        <p>
+            Chọn một chế độ bên dưới để bắt đầu.
+        </p>
+    </div>
+
+
+    <div class="mode-grid">
+
+        <div class="mode-card" onclick="chooseMode('quiz')">
+            <div class="mode-icon">🧠</div>
+
+            <h3>QUIZ</h3>
+
+            <p>
+                Trả lời câu hỏi về nhân vật,
+                nội dung và các chi tiết trong phim.
+            </p>
+
+            <button>CHỌN QUIZ →</button>
+        </div>
+
+
+        <div class="mode-card" onclick="chooseMode('poster')">
+            <div class="mode-icon">🎬</div>
+
+            <h3>POSTER</h3>
+
+            <p>
+                Nhìn poster và đoán tên
+                bộ K-Drama tương ứng.
+            </p>
+
+            <button>CHỌN POSTER →</button>
+        </div>
+
+
+        <div class="mode-card" onclick="chooseMode('expert')">
+            <div class="mode-icon">🔥</div>
+
+            <h3>EXPERT</h3>
+
+            <p>
+                Những câu hỏi khó hơn dành
+                cho fan K-Drama chính hiệu.
+            </p>
+
+            <button>CHỌN EXPERT →</button>
+        </div>
+
+    </div>
+
+
+    <!-- CHỌN THỂ LOẠI -->
+    <div id="genre-selection" class="genre-section">
+
+        <div class="page-header">
+            <p class="section-label">NEXT STEP</p>
+
+            <h2>
+                Chọn <span>thể loại</span>
+            </h2>
+
+            <p id="mode-text">
+                Chọn một thể loại để bắt đầu.
+            </p>
+        </div>
+
+
+        <div class="genre-grid">
+
+            <button onclick="startGame('all')">
+                🌸 Tất cả
+            </button>
+
+            <button onclick="startGame('romance')">
+                💗 Romance
+            </button>
+
+            <button onclick="startGame('school')">
+                🎓 School
+            </button>
+
+            <button onclick="startGame('fantasy')">
+                ✨ Fantasy
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== GAME ==================== -->
+<section id="game" class="page">
+
+    <div class="game-container">
+
+        <div class="game-top">
+
+            <div>
+                <span class="game-label">QUESTION</span>
+
+                <h2>
+                    <span id="question-number">1</span>
+                    / <span id="total-question">10</span>
+                </h2>
+            </div>
+
+
+            <div class="timer-box">
+                ⏱️
+                <span id="timer">15</span>s
+            </div>
+
+        </div>
+
+
+        <div class="progress">
+            <div id="progress-bar"></div>
+        </div>
+
+
+        <div class="game-info">
+
+            <span>
+                ⭐ Điểm:
+                <b id="score">0</b>
+            </span>
+
+            <span>
+                🔥 Combo:
+                <b id="combo">0</b>
+            </span>
+
+        </div>
+
+
+        <div id="question-area">
+
+            <!-- JS sẽ đưa câu hỏi vào đây -->
+
+        </div>
+
+
+        <div class="game-actions">
+
+            <button id="fifty-btn" onclick="useFiftyFifty()">
+                50:50
+            </button>
+
+            <button onclick="skipQuestion()">
+                Bỏ qua →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== RESULT ==================== -->
+<section id="result" class="page">
+
+    <div class="result-box">
+
+        <p class="section-label">GAME OVER</p>
+
+        <h1>
+            Kết quả của m
+        </h1>
+
+
+        <div class="result-score">
+            <span id="final-score">0</span>
+            <small>POINTS</small>
+        </div>
+
+
+        <div class="result-stats">
+
+            <div>
+                <span>Đúng</span>
+                <strong id="correct-count">0</strong>
+            </div>
+
+            <div>
+                <span>Sai</span>
+                <strong id="wrong-count">0</strong>
+            </div>
+
+            <div>
+                <span>Combo</span>
+                <strong id="best-combo">0</strong>
+            </div>
+
+        </div>
+
+
+        <p id="result-message">
+            Nice!
+        </p>
+
+
+        <div class="result-buttons">
+
+            <button class="main-btn" onclick="restartGame()">
+                🔄 CHƠI LẠI
+            </button>
+
+            <button class="secondary-btn" onclick="showPage('explore')">
+                🎬 CHỌN MODE KHÁC
+            </button>
+
+            <button class="secondary-btn" onclick="showPage('ranking')">
+                🏆 XEM XẾP HẠNG
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== RANKING ==================== -->
+<section id="ranking" class="page">
+
+    <div class="page-header">
+
+        <p class="section-label">LEADERBOARD</p>
+
+        <h2>
+            🏆 <span>K-Drama Ranking</span>
+        </h2>
+
+        <p>
+            Thành tích của m trên trình duyệt này.
+        </p>
+
+    </div>
+
+
+    <div class="ranking-box">
+
+        <div class="ranking-header">
+            <span>#</span>
+            <span>Người chơi</span>
+            <span>Điểm</span>
+        </div>
+
+        <div id="ranking-list"></div>
+
+    </div>
+
+
+    <button class="secondary-btn" onclick="showPage('explore')">
+        🎮 CHƠI GAME
+    </button>
+
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+    <p>© 2026 K-Drama Universe</p>
+    <p>Made with 💗 for K-Drama lovers</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
